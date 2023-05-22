@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-Wall
+CFLAGS=-Wall -Werror -Wextra
 BIN=../bin/
 
 all: build

@@ -54,11 +54,11 @@ void viaFile(std::vector<Car> &obj_vec, std::string filename) {
 void storeInMap(std::vector<Car> &obj_vec) {
   std::map<std::string, int> mp;
 
-  for (int i = 0; i < obj_vec.size(); i++) {
+  for (size_t i = 0; i < obj_vec.size(); i++) {
     mp[obj_vec[i].getName()] = mp[obj_vec[i].getName()] + 1;
   }
 
-  for (int i = 0; i < mp.size(); i++) {
+  for (size_t i = 0; i < mp.size(); i++) {
     std::cout << obj_vec[i].getName() << ":" << mp[obj_vec[i].getName()]
               << '\n';
   }
@@ -100,7 +100,7 @@ void writeInFile(std::vector<Car> &obj_vec, std::string filename) {
   std::ofstream fp;
   fp.open(filename, std::ios::app);
 
-  for (int i = 0; i < obj_vec.size(); i++) {
+  for (size_t i = 0; i < obj_vec.size(); i++) {
     fp << obj_vec[i].getSerialNum() << "\n";
     fp << obj_vec[i].getStats() << '\n';
     fp << obj_vec[i].getName() << '\n';
@@ -141,7 +141,7 @@ void addLineInFile(std::vector<Car> &obj_vec, std::string filename) {
 }
 
 void printLines(std::vector<Car> &obj_vec) {
-  for (int i = 0; i < obj_vec.size(); i++) {
+  for (size_t i = 0; i < obj_vec.size(); i++) {
     std::cout << "Серийный номер " << i + 1
               << " владельца: " << obj_vec[i].getSerialNum() << "\n";
     std::cout << "Характеристики автомобиля " << i + 1
@@ -177,7 +177,7 @@ void deleteLines(std::string filename) {
     vec.push_back(str);
   }
 
-  for (int i = 0; i < vec.size(); i = i + 4) {
+  for (size_t i = 0; i < vec.size(); i = i + 4) {
     if (vec[i] == dline) {
       for (int j = i; j < i + 4; j++) {
         vec[j] = " ";
@@ -185,7 +185,7 @@ void deleteLines(std::string filename) {
     }
   }
 
-  for (int i = 0; i < vec.size(); i++) {
+  for (size_t i = 0; i < vec.size(); i++) {
     if (vec[i] != " ") {
       temp << vec[i] << '\n';
     }
@@ -211,13 +211,13 @@ void changeFile(std::string filename) {
     vec.push_back(str);
   }
 
-  for (int i = 0; i < vec.size(); i++) {
+  for (size_t i = 0; i < vec.size(); i++) {
     if (vec[i] == dline) {
       vec[i - 1] = newname;
     }
   }
 
-  for (int i = 0; i < vec.size(); i++) {
+  for (size_t i = 0; i < vec.size(); i++) {
     temp << vec[i] << '\n';
   }
 
